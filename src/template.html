@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      #weather-info {
+        margin-top: 20px;
+      }
+      .loading {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Weather App</h1>
+    <form id="weather-form">
+      <input type="text" id="location" placeholder="Enter location" required />
+      <button type="submit">Get Weather</button>
+    </form>
+    <div id="loading" class="loading">Loading...</div>
+    <div id="weather-info"></div>
+  </body>
+</html>
