@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes circular {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            25% {
+                transform: translateX(10vw) translateY(-3vh) rotate(90deg);
+            }
+            50% {
+                transform: translateX(20vw) translateY(3vh) rotate(180deg);
+            }
+            75% {
+                transform: translateX(30vw) translateY(-3vh) rotate(270deg);
+            }
+            100% {
+                transform: translateX(100vw) translateY(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .line {
+            position: absolute;
+            height: 2px;
+            width: 50px;
+            background: rgba(105, 105, 105, 0.7);
+            pointer-events: none;
+            animation: circular 5s linear infinite;
+            border-radius: 2px;
+        }
+
+        /* Loading spinner */
+        .loading {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+<script defer src="main.js"></script></head>
+<body class="flex flex-col min-h-screen overflow-x-hidden relative bg-gray-100">
+    <!-- Wind Animation Container -->
+    <div id="wind-container" class="absolute inset-0 pointer-events-none"></div>
+
+    <header class="bg-gray-400 p-3">
+        <div class="container mx-auto">
+            <img src="1e1ddaff2ab442414522.png" alt="Logo" class="h-12">
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col items-center justify-start space-y-10 container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center pt-12">Let's Check The Wind</h1>
+        
+        <!-- Weather Form -->
+        <form id="weather-form" class="w-full max-w-lg">
+            <div class="flex flex-col text-center items-center justify-center justify-items-center">
+                <div class="border border-gray-500 text-4xl max-w-fit p-10 rounded-xl flex flex-col space-y-3 gap-5 bg-white">
+                    <p class="text-2xl">Tell me where you are?</p>
+                    <div class="flex flex-col gap-5">
+                        <label for="city-name" class="block text-2xl font-medium text-gray-900">Your City:</label>
+                        <div class="mt-2">
+                            <input type="text" 
+                                   name="city-name" 
+                                   id="city-name" 
+                                   autocomplete="off"
+                                   class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-xl"
+                                   placeholder="Enter city name">
+                        </div>
+                        <button type="submit" 
+                                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full shadow text-xl transition duration-300 ease-in-out transform hover:scale-105">
+                            Check the Weather
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading"></div>
+
+        <!-- Weather Info -->
+        <div id="weather-info" class="text-center text-red-500"></div>
+
+        <!-- Weather Cards Container -->
+        <div id="main" class="w-full pb-12"></div>
+    </main>
+
+    <footer class="bg-gray-400 p-3 text-center mt-auto">
+        <p>&copy; 2023 Weather App. All rights reserved.</p>
+    </footer>
+
+    <script src="dd0246132de269905277.js"></script>
+</body>
+</html>
