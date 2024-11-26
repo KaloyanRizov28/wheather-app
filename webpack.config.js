@@ -22,7 +22,27 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  "tailwindcss",
+                  "autoprefixer",
+                  [
+                    "postcss-preset-env",
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.html$/i,
@@ -35,3 +55,4 @@ module.exports = {
     ],
   },
 };
+
