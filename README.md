@@ -3,6 +3,7 @@
 
 A sleek and responsive weather dashboard application that provides 7-day weather forecasts with detailed information including temperature, feels-like temperatures, sunrise/sunset times, and more. Features an engaging wind animation effect for a dynamic user experience.
 
+![image](https://github.com/user-attachments/assets/64baad36-9fb0-48d0-86b4-ecf72e4a5380)
 
 
 ## 🌟 Features
